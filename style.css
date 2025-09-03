@@ -83,8 +83,20 @@
     color:var(--accent);
     }
     .btn.ghost:hover,
-    .import-label:hover{ background:rgba(74,64,224,.06) } /* delikatny fiolet na hover */
-    .import-label{ display:inline-grid; place-items:center }
+    .import-label {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 40px; /* dostosuj, żeby pasowało do innych przycisków */
+        padding: 10px 14px;
+        border: 1px solid var(--accent);
+        border-radius: 10px;
+        background: transparent;
+        color: var(--accent);
+        font-weight: 700;
+        cursor: pointer;
+        letter-spacing: .02em;
+        }
     
     /* summary */
     .summary{
