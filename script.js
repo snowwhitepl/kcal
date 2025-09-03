@@ -43,7 +43,7 @@ const ctx = canvas.getContext('2d');
 
 // kolor akcentu z CSS (dla wykresu)
 const ACCENT = (getComputedStyle(document.documentElement)
-.getPropertyValue('--accent') || '#4A40E0').trim();
+.getPropertyValue('--accent') || '#5a6ecf').trim();
 
 // ====== canvas sizing (responsive, HiDPI) ======
 function sizeCanvas(){
@@ -156,30 +156,6 @@ items = [];
 save(items);
 render();
 }
-});
-
-$('#export').addEventListener('click', ()=>{
-const blob = new Blob([JSON.stringify(items,null,2)], {type:'application/json'});
-const a = document.createElement('a');
-a.href = URL.createObjectURL(blob);
-a.download = 'kalorie.json';
-a.click();
-URL.revokeObjectURL(a.href);
-});
-
-$('#import').addEventListener('change', async (e)=>{
-const file = e.target.files[0];
-if(!file) return;
-const text = await file.text();
-try{
-const data = JSON.parse(text);
-if(Array.isArray(data)){
-items = data.filter(x => x && typeof x.kcal==='number' && x.date);
-save(items);
-render();
-} else alert('Plik nie zawiera listy wpisów.');
-}catch(err){ alert('Nieprawidłowy JSON.'); }
-e.target.value='';
 });
 
 rangeEl.addEventListener('change', render);

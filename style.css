@@ -1,8 +1,8 @@
 :root{
     --ink:#232523;
     --bg:#f2f2f3; /* szare tło strony */
-    --panel:#fcf5e2; /* białe wnętrze panelu */
-    --accent:#5a6ecf; /* fiolet – kolor akcentu */
+    --panel:#fcf5e2; /* krem / kawa z mlekiem w środku */
+    --accent:#5a6ecf; /* akcent (niebieskawy fiolet) */
     --line:#e9e9ee;
     --muted:#6c6c6c;
     }
@@ -25,7 +25,7 @@
     margin:0 auto;
     padding:40px 12px; /* 12px po bokach = cienkie czarne kolumny */
     border-radius:0;
-    box-shadow: none;
+    box-shadow:none; /* brak cienia */
     }
     
     /* —— PANEL — zaokrąglenia tylko tutaj —— */
@@ -42,8 +42,8 @@
     .title{
     margin:0;
     font:800 28px/1.05 "Inter",system-ui;
-    text-transform:uppercase; /* DUŻE LITERY */
-    color:var(--accent); /* akcent */
+    text-transform:uppercase;
+    color:var(--accent);
     }
     .subtitle{ margin:.4rem 0 0; color:var(--muted) }
     
@@ -69,46 +69,34 @@
     /* przyciski */
     .actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:6px }
     .btn{
-    border:1px solid transparent; border-radius:10px; padding:10px 14px;
-    font-weight:700; cursor:pointer; letter-spacing:.02em;
+    display:inline-flex; align-items:center; justify-content:center;
+    height:40px; padding:0 16px; line-height:1;
+    font-size:16px; font-weight:700; letter-spacing:.02em;
+    border:1px solid transparent; border-radius:10px;
+    cursor:pointer;
     }
     .btn.primary{ background:var(--accent); color:#fff }
     .btn.primary:hover{ filter:brightness(.95) }
     
-    /* ujednolicony wygląd ghostów: Eksport + Import (label) */
-    .btn.ghost,
-    .import-label{
+    /* ghost (Wyczyść listę) */
+    .btn.ghost{
     background:transparent;
     border:1px solid var(--accent);
     color:var(--accent);
     }
-    .btn.ghost:hover,
-    .import-label {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        height: 40px; /* dostosuj, żeby pasowało do innych przycisków */
-        padding: 10px 14px;
-        border: 1px solid var(--accent);
-        border-radius: 10px;
-        background: transparent;
-        color: var(--accent);
-        font-weight: 700;
-        cursor: pointer;
-        letter-spacing: .02em;
-        }
+    .btn.ghost:hover{ background:rgba(90,110,207,.08) }
     
     /* summary */
     .summary{
     display:flex; justify-content:space-between; align-items:center;
     padding:14px 0;
-    border-top:none; /* usunięcie cienkiej linii */
+    border-top:none; /* bez cienkiej linii */
     }
     .summary strong{ font-weight:800 }
     .filter select{ margin-left:8px; padding:8px 10px; border-radius:10px; border:1px solid var(--line) }
     
     /* list */
-    .list{ list-style:none; margin:0; padding:0; border-top:none } /* bez linii nad listą */
+    .list{ list-style:none; margin:0; padding:0; border-top:none }
     .item{
     display:flex; align-items:center; justify-content:space-between; gap:12px;
     padding:14px 0; border-bottom:1px solid var(--line)
