@@ -1,0 +1,129 @@
+:root{
+    --ink:#232523;
+    --bg:#f2f2f3; /* szare tło strony */
+    --panel:#fcf5e2; /* białe wnętrze panelu */
+    --accent:#5a6ecf; /* fiolet – kolor akcentu */
+    --line:#e9e9ee;
+    --muted:#6c6c6c;
+    }
+    
+    /* reset */
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0}
+    
+    /* tło strony */
+    body{
+    font-family:"Inter",system-ui,Arial,sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    }
+    
+    /* —— CZARNA RAMA — 750px całość, kolumny 12px —— */
+    .app-frame{
+    background:#000;
+    width:min(750px, 94vw);
+    margin:0 auto;
+    padding:40px 12px; /* 12px po bokach = cienkie czarne kolumny */
+    border-radius:0;
+    box-shadow: none;
+    }
+    
+    /* —— PANEL — zaokrąglenia tylko tutaj —— */
+    .app-surface{
+    background:var(--panel);
+    border-radius:20px;
+    padding:20px 100px 12px; /* 100px oddechu po bokach */
+    margin:0;
+    width:100%;
+    }
+    
+    /* hero */
+    .hero{ text-align:center; padding:18px 6px 4px }
+    .title{
+    margin:0;
+    font:800 28px/1.05 "Inter",system-ui;
+    text-transform:uppercase; /* DUŻE LITERY */
+    color:var(--accent); /* akcent */
+    }
+    .subtitle{ margin:.4rem 0 0; color:var(--muted) }
+    
+    /* karta */
+    .card{
+    width:100%;
+    background:transparent;
+    border-radius:14px;
+    box-shadow:none;
+    padding:0;
+    margin:14px 0 8px;
+    }
+    
+    /* form */
+    .row{ display:grid; gap:14px; grid-template-columns:1fr 1fr; margin-bottom:12px }
+    label{ font-weight:600; font-size:14px; display:flex; flex-direction:column; gap:8px }
+    input{
+    border:1px solid var(--line);
+    border-radius:10px; padding:12px 14px;
+    font:inherit; background:#fff; color:var(--ink);
+    }
+    
+    /* przyciski */
+    .actions{ display:flex; flex-wrap:wrap; gap:10px; margin-top:6px }
+    .btn{
+    border:1px solid transparent; border-radius:10px; padding:10px 14px;
+    font-weight:700; cursor:pointer; letter-spacing:.02em;
+    }
+    .btn.primary{ background:var(--accent); color:#fff }
+    .btn.primary:hover{ filter:brightness(.95) }
+    
+    /* ujednolicony wygląd ghostów: Eksport + Import (label) */
+    .btn.ghost,
+    .import-label{
+    background:transparent;
+    border:1px solid var(--accent);
+    color:var(--accent);
+    }
+    .btn.ghost:hover,
+    .import-label:hover{ background:rgba(74,64,224,.06) } /* delikatny fiolet na hover */
+    .import-label{ display:inline-grid; place-items:center }
+    
+    /* summary */
+    .summary{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:14px 0;
+    border-top:none; /* usunięcie cienkiej linii */
+    }
+    .summary strong{ font-weight:800 }
+    .filter select{ margin-left:8px; padding:8px 10px; border-radius:10px; border:1px solid var(--line) }
+    
+    /* list */
+    .list{ list-style:none; margin:0; padding:0; border-top:none } /* bez linii nad listą */
+    .item{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding:14px 0; border-bottom:1px solid var(--line)
+    }
+    .meta{ display:flex; flex-direction:column; gap:2px }
+    .name{ font-weight:700 }
+    .note{ color:var(--muted); font-size:13px; max-width:52ch; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+    .right{ display:flex; align-items:center; gap:16px }
+    .kcal{ font-weight:800 }
+    .del{ border:none; background:transparent; color:#b00020; font-size:22px; cursor:pointer }
+    .del:hover{ opacity:.8 }
+    
+    /* chart */
+    .chart{ padding:14px 0 8px }
+    .chart h2{ font-size:16px; margin:0 0 8px }
+    .chart canvas{
+    width:100%;
+    height:240px; /* wizualna wysokość; JS dopasuje DPI */
+    display:block;
+    }
+    
+    /* footer */
+    .footer{ color:var(--muted); padding:10px 0 4px; text-align:center }
+    
+    /* — responsywność — */
+    @media (max-width:700px){
+    .app-frame{ width:100vw; padding:24px 12px; border-radius:0 }
+    .app-surface{ padding:16px 20px 10px }
+    .row{ grid-template-columns:1fr }
+    }
