@@ -1,10 +1,10 @@
 :root{
-    --ink:#232523;
-    --bg:#f2f2f3; /* szare tło strony */
-    --panel:#fcf5e2; /* krem / kawa z mlekiem w środku */
-    --accent:#5a6ecf; /* akcent (niebieskawy fiolet) */
-    --line:#e9e9ee;
-    --muted:#6c6c6c;
+    --ink:#232523; /* główny tekst – czarny */
+    --bg:#000000; /* tło strony – czarne */
+    --panel:#E0D0C1; /* panel w środku – Almond */
+    --accent:#A76D60; /* akcenty – Redwood */
+    --line:#D2BFAF; /* linie/inputy – ciemniejszy Almond */
+    --muted:#6c6c6c; /* opisy pomocnicze */
     }
     
     /* reset */
@@ -18,21 +18,21 @@
     background:var(--bg);
     }
     
-    /* —— CZARNA RAMA — 750px całość, kolumny 12px —— */
+    /* —— CZARNA RAMA —— */
     .app-frame{
-    background:#000;
+    background:#000; /* czarna rama */
     width:min(750px, 94vw);
     margin:0 auto;
-    padding:40px 12px; /* 12px po bokach = cienkie czarne kolumny */
+    padding:40px 12px;
     border-radius:0;
-    box-shadow:none; /* brak cienia */
+    box-shadow:none;
     }
     
-    /* —— PANEL — zaokrąglenia tylko tutaj —— */
+    /* —— PANEL —— */
     .app-surface{
-    background:var(--panel);
+    background:var(--panel); /* Almond */
     border-radius:20px;
-    padding:20px 100px 12px; /* 100px oddechu po bokach */
+    padding:20px 100px 12px;
     margin:0;
     width:100%;
     }
@@ -43,7 +43,7 @@
     margin:0;
     font:800 28px/1.05 "Inter",system-ui;
     text-transform:uppercase;
-    color:var(--accent);
+    color:var(--accent); /* Redwood */
     }
     .subtitle{ margin:.4rem 0 0; color:var(--muted) }
     
@@ -84,16 +84,18 @@
     border:1px solid var(--accent);
     color:var(--accent);
     }
-    .btn.ghost:hover{ background:rgba(90,110,207,.08) }
+    .btn.ghost:hover{ background:rgba(167,109,96,.08) } /* Redwood z alfa */
     
     /* summary */
     .summary{
     display:flex; justify-content:space-between; align-items:center;
     padding:14px 0;
-    border-top:none; /* bez cienkiej linii */
+    border-top:none;
     }
     .summary strong{ font-weight:800 }
-    .filter select{ margin-left:8px; padding:8px 10px; border-radius:10px; border:1px solid var(--line) }
+    .filter select{
+    margin-left:8px; padding:8px 10px; border-radius:10px; border:1px solid var(--line)
+    }
     
     /* list */
     .list{ list-style:none; margin:0; padding:0; border-top:none }
@@ -114,7 +116,7 @@
     .chart h2{ font-size:16px; margin:0 0 8px }
     .chart canvas{
     width:100%;
-    height:240px; /* wizualna wysokość; JS dopasuje DPI */
+    height:240px;
     display:block;
     }
     
